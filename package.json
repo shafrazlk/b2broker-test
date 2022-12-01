@@ -1,0 +1,31 @@
+{
+  "name": "testing-websockets",
+  "version": "1.0.0",
+  "description": "Repository exemplifying how to write integration tests for WebSocket servers using Jest.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --unhandled-rejections=strict ./index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^7.4.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
+    "@types/ws": "^7.4.1",
+    "jest": "^26.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shafrazlk/b2broker-test.git"
+  },
+  "author": "Shafraz Mohamed",
+  "license": "MIT"
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Websocket Subscriber Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script>
+      function subscribe(e) {
+        var type = e.getAttribute("data-type");
+
+        var host = window.document.location.host.replace(/:.*/, "");
+
+        var ws = new WebSocket(`ws://${host}:8081`);
+
+        ws.onopen = () => {
+          ws.send(
+            JSON.stringify({
+              type: type,
+            })
+          );
+
+          ws.onmessage = (event) => {
+            data = JSON.parse(event.data);
+
+            response.innerHTML = JSON.stringify(data, undefined, 2);
+          };
+        };
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="subscribe(this)" data-type="Subscribe">Subscribe</button>
+    <button onclick="subscribe(this)" data-type="Unsubscribe">Unsubscribe</button>
+    <button onclick="subscribe(this)" data-type="CountSubscribers">Subscriber Count</button>
+
+    <div>
+      <h1>Response</h1>
+      <code id="response"></code>
+    </div>
+  </body>
+</html>
